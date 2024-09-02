@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: "Open Sans",Arial, Helvetica, sans-serif;
+}
+body,html{
+    background: radial-gradient(#eee,#fff,#fff,#fff);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
