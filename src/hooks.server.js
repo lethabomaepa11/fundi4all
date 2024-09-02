@@ -75,7 +75,7 @@ const authGuard= async ({ event, resolve }) => {
     let n = 1+1;//had to just put this lol
   }
   else if(!event.locals.session && event.url.pathname == "/auth/onboarding"){
-    redirect(303, '/portal')
+    redirect(303, '/login')
   }
   else if (event.locals.session && event.url.pathname.startsWith('/auth')) {
     redirect(303, '/portal')
@@ -87,18 +87,4 @@ const authGuard= async ({ event, resolve }) => {
 export const handle= sequence(supabase, authGuard)
 
 //for server db queries
-export const fetchCurrentUserData = async({ locals: { supabase } }) => {
-  const { data: {user} } = await supabase.auth.getUser();
-  //console.log(user);
-  const user_id = user.id;
-  //console.log(user_id)
-  const {data,error} = await supabase.from('users')
-                          .select()
-                          .eq('user_id',user_id)
-                          .single()
-  if(error){
-      console.log(error);
-  }
-  //console.log(data)
-  return data;
-}
+

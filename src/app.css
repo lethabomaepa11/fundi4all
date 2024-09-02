@@ -12,3 +12,9 @@ body,html{
     background-size: cover;
     background-attachment: fixed;
 }
+
+@media screen and (min-width: 1000px) {
+    .btm-nav{
+        display: none;
+    }
+}

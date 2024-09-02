@@ -24,11 +24,13 @@ export const actions = {
         //console.log(user);
       //redirect(303, '/')
     }
+    const profile_url = email.substring(0,email.indexOf("@"));
     const { newUser, error: insertError } = await supabase
     .from('users')
     .insert([{ 
       user_id: user.id, 
-      email: email,  
+      email: email,
+      profile_url: profile_url,  
       name: formData.get('name'),
       surname: formData.get('surname'),
       role: formData.get('role'),
@@ -58,29 +60,5 @@ export const actions = {
     }
   },
 
-  updateUser: async({request, locals: {supabase}}) => {
-    const formData = await request.formData()
-    const institution = formData.get("institution")
-    const topics = formData.get("topics")
-    const grade = formData.get("grade")
-    const gender = formData.get("gender")
-    const { data: { user } } = await supabase.auth.getUser()
-
-    const {data,error} = await supabase.from("users")
-                          .update({institution: institution,
-                            topics: topics,
-                            grade: grade,
-                            gender: gender,
-                          })
-                          .eq("user_id",user.id)
-                          .select()
-    if(error){
-      console.log(error)
-      redirect(301,"/auth/onboarding")
-    }
-    else{
-      console.log(data);
-      redirect(301,"/auth/onboarding")
-    }
-  }
+  
 }
