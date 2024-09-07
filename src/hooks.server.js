@@ -70,7 +70,9 @@ const authGuard= async ({ event, resolve }) => {
   if (!event.locals.session && !event.url.pathname.startsWith('/auth') && event.url.pathname != "/" ) {
       redirect(303, '/auth/login');
   }
-  
+  if(event.locals.session && event.url.pathname == "/"){
+    redirect(303,"/portal");
+  }
   if(event.locals.session && event.url.pathname == "/auth/onboarding"){
     let n = 1+1;//had to just put this lol
   }

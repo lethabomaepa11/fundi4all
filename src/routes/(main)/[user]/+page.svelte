@@ -1,7 +1,9 @@
 <script>
 	import { fade, fly, scale, slide } from 'svelte/transition';
+	import CreatePost from '../../../components/CreatePost.svelte';
 
     export let data;
+    console.log(data)
     let topics;
     if(data.topics != null)
         topics = data.topics.replace(" ","").split(",");
@@ -9,20 +11,38 @@
         topics = ["no topics"]
     }
     let date_of_birth = new Date(data.date_of_birth);
+
+    const editBio = () => {data.canEdit && document.getElementById('my_modal_3').showModal()}
 </script>
 <title>
     {data.name} {data.surname} | fundi4All
 </title>
-<main transition:scale class="flex flex-col lg:flex-row justify-around items-start">
-    <section class="profileCard card lg:shadow p-5 w-full lg:w-2/4">
+<main transition:fade class="flex flex-col lg:flex-row justify-evenly items-start">
+    <section class="profileCard card lg:shadow-lg p-5 w-full lg:w-2/4 bg-white">
         <div class="bg-neutral-300 min-w-full h-[150px] rounded">
             <img class={`btn btn-circle w-[150px] h-[150px] mt-6 ml-5 absolute`}` src="/fundi4All full logo.png" alt={`${data.name} ${data.surname}`}/>
         </div>
         <div class="mt-7"></div>
         <h1 class="font-bold text-2xl">{data.name} {data.surname}</h1>
-        <div class="btn btn-ghost p-5 rounded my-5">
-            {data.bio == null?"":data.bio}
+        <!-- Update bio modal -->
+        <dialog id="my_modal_3" class="modal">
+        <div class="modal-box">
+            <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><i class="fa fa-xmark"></i></button>
+            </form>
+            <h3 class="text-lg font-bold">Bio</h3>
+            <p class="py-4 text-sm">Update your bio</p>
+            <form method="post" action="?/updateBio" class="flex flex-col items-center p-5 gap-3">
+                <textarea name="bio" id="bio" class="textarea textarea-bordered w-full" placeholder="Describe yourself...">{data.bio == null?"":data.bio}</textarea>
+                <button type="submit" class="btn btn-primary w-full">Confirm</button>
+            </form>
         </div>
+        </dialog>
+        
+        <button class="rounded my-5 text-left text-sm p-4 transition-all hover:bg-base-200" on:click={editBio}>
+            <pre><span class="pre">{data.bio == null?"":data.bio}</span></pre>
+        </button>
+
         {#if !data.canEdit}
             <div class="">
                 <button class="btn btn-primary">Connect<i class="fa fa-user-plus"></i></button>
@@ -34,17 +54,7 @@
                 <button class="btn btn-outline">Create<i class="fa fa-message"></i></button>
             </div>
             <div class="divider"></div>
-            <div class="">
-                <h1 class="text-lg font-bold text-pretty">Create a post</h1>
-                <input type="text" class="input input-bordered mt-5 w-full" placeholder="Ask for assistance..."/>
-                <div class="my-5 grid grid-cols-3 md:flex gap-4 ">
-                    <button class="btn btn-ghost"><i class="fa fa-chalkboard-user text-primary text-xl"></i> Create a classroom</button>
-                    <button class="btn btn-ghost"><i class="fa fa-handshake text-secondary text-xl"></i> Offer Tutoring services</button>
-                    <button class="btn btn-ghost"><i class="fa fa-upload text-accent text-xl"></i> Upload Files</button>
-                </div>
-                <p class="text-sm text-info pt-5">You can Upload past question papers, notes and textbooks</p>
-                
-            </div>
+            <CreatePost user={data}/>
         {/if}
         <div class="divider"></div>
         <span class="flex justify-between items-center">
@@ -68,8 +78,19 @@
         </div>
          
     </section>
-    <section class="card lg:shadow p-5 lg:w-2/5">
+    <section class="card lg:shadow p-5 lg:w-2/5 bg-white">
         <h1 class="text-lg font-bold text-pretty">Posts</h1>
+        {#each data.posts as post}
+            <div class="card card-bordered shadow-md my-3 p-5">
+                <p class="text-sm text-accent-content">{Date(post.created_at)}</p>
+                <div class="flex p-2">
+                    <pre><span class="pre">{post.text == null?"":post.text}</span></pre>
+                </div>
+                <div class="card-actions">
+                    <i class="fa fa-thumbs-up"></i>
+                </div>
+            </div>
+        {/each}
         <h1 class="text-lg font-bold text-pretty">Explore classrooms</h1>
         <h1 class="text-lg font-bold text-pretty">Tutoring services</h1>
     </section>

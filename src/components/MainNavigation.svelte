@@ -28,6 +28,6 @@
 
     <div>
         <!-- must not be displayed when in profile page of mine-->
-      <a href={`/${data.profile_url}`} class="btn btn-circle bg-primary text-white" style="margin-left: 1rem;border-radius: 50%;aspect-ratio: 1;">{initials}</a>
+      <a href={`/${data.profile_url}`} data-sveltekit-reload class="btn btn-circle bg-primary text-white" style="margin-left: 1rem;border-radius: 50%;aspect-ratio: 1;">{initials}</a>
     </div>
 </header>
