@@ -3,7 +3,7 @@
 	import CreatePost from '../../../components/CreatePost.svelte';
 
     export let data;
-    console.log(data)
+    //console.log(data)
     let topics;
     if(data.topics != null)
         topics = data.topics.replace(" ","").split(",");
