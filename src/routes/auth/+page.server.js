@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit'
+import { json, redirect } from '@sveltejs/kit'
 
 
 export const actions = {
@@ -47,18 +47,21 @@ export const actions = {
 
   },
   login: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData()
-    const email = formData.get('email') 
-    const password = formData.get('password') 
+    const formData = await request.formData();
+    const email = formData.get('email');
+    const password = formData.get('password');
 
-    const { error } = await supabase.auth.signInWithPassword({ email:email, password:password })
+    const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+    });
+
     if (error) {
-      console.error(error)
-      redirect(303, '/auth/login')
+        return "Wrong credentials";//always gave me errors with json() or new Response().
     } else {
-      redirect(303, '/portal')
+        redirect(303, '/portal');
     }
-  },
+},
 
   
 }

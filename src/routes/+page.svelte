@@ -1,60 +1,71 @@
-
 <title>
-    Home | fundi4All
+  Home | fundi4All
 </title>
 <main>
-    <header class="navbar shadow">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            <ul
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <li>tem 1</li>
-              <li>
-                Parent
-                <ul class="p-2">
-                  <li>Submenu 1</li>
-                  <li>Submenu 2</li>
-                </ul>
-              </li>
-              <li>Item 3</li>
+  <header class="navbar shadow fixed z-50 top-0">
+      <div class="navbar-start">
+        <a class="btn btn-ghost text-xl w-fit" href="/"><img alt="logo" class="-mt-6" width="100" src="/fundi4All full logo.png"></a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <!-- Add more content or links here if needed -->
+      </div>
+      <div class="navbar-end">
+        <a href="/auth/login" class="btn btn-primary px-5">Login here</a>
+      </div>
+  </header>
+
+  <section class="hero min-h-screen flex flex-col justify-center items-center gap-3 mt-[80px] bg-blue-50 p-5 text-center">
+      <h1 class="font-bold text-6xl text-secondary">We Love Education</h1>
+      <p class="mt-4 text-lg max-w-2xl mx-auto">
+          Connecting high school students with tertiary students to make learning easier and more engaging.
+      </p>
+      <p class="mt-2 text-md">Are you a high schooler transitioning to tertiary or a student already at tertiary? Join us!</p>
+      <a href="/auth/register" class="btn btn-primary mt-5">Get Started Now</a>
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1">
+            <ul class="text-sm flex flex-col font-bold gap-2">
+              <li>You can upload and download past question papers and notes for when you need them most</li>
+              <li>Share knowledge with your buddies here</li>
+              <li>Make friends</li>
+              <li>Tutor others with something you're confident about and make side money</li>
             </ul>
+            <label class="swap swap-flip text-9xl">
+              <!-- this hidden checkbox controls the state -->
+              <input type="checkbox" />
+            
+              <div class="swap-on">😈</div>
+              <div class="swap-off">😇</div>
+            </label>
+            <a href="/auth/register" class="btn btn-primary mt-5">Create an account</a>
           </div>
-          <a class="btn btn-ghost text-xl w-fit" href="/"><img alt="logo" class="-mt-6"  width="100"  src="/fundi4All full logo.png"></a>
         </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li>Item 1</li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul class="p-2">
-                  <li>Submenu 1</li>
-                  <li>Submenu 2</li>
-                </ul>
-              </details>
-            </li>
-            <li>Item 3</li>
-          </ul>
-        </div>
-        <div class="navbar-end">
-          <a href="/auth/login" class="md:btn md:btn-outline px-5">Login here</a>
-        </div>
-    </header>
-    <section class="my-5 p-2 flex flex-col justify-center items-center">
-      <h1 class="font-bold text-5xl">Fundi for me, for you, for <span class="text-primary">all</span>!!!</h1>
-    </section>
+      </div>
+  </section>
+
+  <footer class="footer bg-primary text-primary-content p-10">
+    <aside>
+      <img alt="logo" class="-mt-6" width="100" src="/fundi4All full logo.png">
+      <p>
+        fundi4All. Connecting high schoolers and varsity mates.
+        <br />
+        Best in the country
+      </p>
+    </aside>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+    </nav>
+  </footer>
 </main>

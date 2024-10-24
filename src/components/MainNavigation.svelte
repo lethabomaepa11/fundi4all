@@ -4,7 +4,7 @@
     export let initials;
 
 </script>
-<header class="navbar bg-white shadow fixed z-40">
+<header class="navbar bg-white w-full shadow fixed z-40">
     <div class="navbar-start lg:flex">
       <a class="btn btn-ghost text-xl w-fit -mt-10 lg:mt-0" href="/portal"><img loading="lazy" alt="logo" class="lg:-mt-5"  width="100" height="100%"  src="/fundi4All full logo.png"></a>
     </div>

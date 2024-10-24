@@ -8,7 +8,7 @@
     let initials = data.name.charAt(0).toUpperCase() + data.surname.charAt(0).toUpperCase();
 
 </script>
-<main>
+<main class="w-screen overflow-x-hidden">
     <Drawer/>
     <MainNavigation data={data} initials={initials}/>
     <div class="py-20 z-0 bg-slate-300 min-h-screen">

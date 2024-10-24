@@ -17,28 +17,27 @@
         <label for="institution" class="">
             Institution
         </label>
-        <input type="text" id="institution" name="institution" placeholder="Where do you work/study?" class="input input-bordered w-full"/>
-          {#if data.role == "Student"}        
+        <input required type="text" id="institution" name="institution" placeholder="Where do you study?" class="input input-bordered w-full"/>
+          {#if data.role == "High school learner"}        
           <label for="grade" class="">
             Grade
         </label>
-        <select id="grade" name="grade" class="select select-bordered w-full">
+        <select required id="grade" name="grade" class="select select-bordered w-full">
             <option disabled selected>What grade are you in?</option>
             <option>7-9</option>
             <option>10-11</option>
             <option>12</option>
-            <option>University/College student</option>
           </select>
           {/if}
           <label for="topics" class="">
             Related Subjects/Topics
         </label>
-        <textarea type="text" id="topics" name="topics" placeholder="comma separated... e.g maths, life science, cat, programming" class="textarea textarea-bordered w-full"/>
+        <textarea  type="text" id="topics" name="topics" placeholder="comma separated... e.g maths, life science, cat, programming" class="textarea textarea-bordered w-full"/>
 
           <label for="gender" class="">
             Gender
         </label>
-        <select id="gender" name="gender" class="select select-bordered w-full">
+        <select required id="gender" name="gender" class="select select-bordered w-full">
             <option disabled selected>Select your gender</option>
             <option>Male</option>
             <option>Female</option>

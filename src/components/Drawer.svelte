@@ -1,3 +1,24 @@
+<script>
+  const handleLogout = async () => {
+    document.body.innerHTML += `<div class="toast">
+  <div class="alert alert-error flex">
+    <span>Logging out...</span>
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+</div>`;
+    const response = await fetch('/portal?/logout', { method: "POST",headers: {
+        'Content-Type': 'application/x-www-form-urlencoded' // Or application/json depending on your backend setup
+      } });
+
+    if (response.ok) {
+      // Redirect or handle successful logout
+      window.location.href = '/auth/login';  // You can redirect or reload the page
+    } else {
+      console.error('Logout failed:', response.statusText);
+    }
+  };
+</script>
+
 <div class="drawer drawer-end z-50">
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
@@ -34,6 +55,9 @@
                     <p class="text-xs text-base-300">Spicy news in here🔥🔥🔥🔥</p>
                 </a>
                 </li>
+                  <button on:click={handleLogout} class="fixed bottom-0 btn btn-error text-white w-2/3 mb-3">
+                    <i class="fa fa-right-from-bracket"></i>Logout
+                  </button>
               </ul>
             </li>
           </ul>

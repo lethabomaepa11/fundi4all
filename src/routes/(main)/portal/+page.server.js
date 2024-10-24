@@ -27,6 +27,14 @@ export const _getPublicUrl = (fileurl,supabase) => {
     return data.publicUrl ;
 }
 export const actions = {
+    logout: async ({locals: {supabase}}) => {
+        const {error} = await supabase.auth.signOut();
+        if(!error){
+            redirect(303,"/auth/login");
+        }else{
+            console.log(error)
+        }
+    },
     submitPost: async ({request,locals:{supabase}}) =>{
         const { data: {user} } = await supabase.auth.getUser();
         user_id = user.id;
