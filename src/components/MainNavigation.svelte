@@ -6,23 +6,23 @@
 </script>
 <header class="navbar bg-white shadow fixed z-40">
     <div class="navbar-start lg:flex">
-      <a class="btn btn-ghost text-xl w-fit" href="/portal"><img alt="logo" class="-mt-6"  width="100" height="100%"  src="/fundi4All full logo.png"></a>
+      <a class="btn btn-ghost text-xl w-fit -mt-10 lg:mt-0" href="/portal"><img loading="lazy" alt="logo" class="lg:-mt-5"  width="100" height="100%"  src="/fundi4All full logo.png"></a>
     </div>
 
-    <input type="text" class="input input-bordered w-full" style="margin-right: 2rem;" placeholder="Search"/>
+    <input type="text" id="search" name="search" class="input input-bordered w-full" style="margin-right: 2rem;" placeholder="Search"/>
 
       <div class="hidden lg:flex gap-5" style="gap: 2rem">
-        <NavItem icon="fa fa-house" href="/portal">
+        <NavItem className="" onclick="navigate" icon="house" href="/portal">
             Home
         </NavItem>
-        <NavItem icon="fa fa-users" href="/connections">
+        <NavItem className="" onclick="navigate" icon="users" href="/connections">
             Connections
         </NavItem>
-        <NavItem icon="fa fa-chalkboard-user" href="/classrooms">
-            Classrooms
-        </NavItem>
-        <NavItem icon="fa fa-message" href="/chats">
+        <NavItem className="" onclick="navigate" icon="message" href="/chat">
             Chats
+        </NavItem>
+        <NavItem className="" onclick="showMore" icon="bars" href="#">
+            More
         </NavItem>
     </div>
 

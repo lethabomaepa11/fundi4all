@@ -1,14 +1,20 @@
 import { error } from '@sveltejs/kit';
+import { _getPublicUrl } from '../portal/+page.server.js';
 export const load = async ({locals: {supabase},params}) => {
      const {data: {user}} = await supabase.auth.getUser()
      const user_id = user.id;//used to check if the user is checking his own profile
      const profile_url = params.user;
      let newData;
+     const {data: post_files} = await supabase.from("post_files").select();
+     let newPostFiles = post_files.map(post_file => {
+        const name = post_file.file_url.substring(post_file.file_url.lastIndexOf("/")+1);
+        return post_file = {...post_file,url: _getPublicUrl(post_file.file_url,supabase),name:name}
+    })
      const {data} = await supabase.from("users")
                         .select()
                         .eq("profile_url",profile_url)
                         .single();
-    newData = data;
+    newData = {...data,post_files: newPostFiles}
     if(!data){
         error(404, "Page not found");
     }

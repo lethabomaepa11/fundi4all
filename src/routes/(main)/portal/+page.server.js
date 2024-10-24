@@ -12,13 +12,13 @@ export const load = async ({locals: {supabase}}) => {
     pageData = {...pageData,posts: posts};
     let newPostFiles = post_files.map(post_file => {
         const name = post_file.file_url.substring(post_file.file_url.lastIndexOf("/")+1);
-        return post_file = {...post_file,url: getPublicUrl(post_file.file_url,supabase),name:name}
+        return post_file = {...post_file,url: _getPublicUrl(post_file.file_url,supabase),name:name}
     })
     pageData = {...pageData,post_files: newPostFiles};
     //console.log(newPostFiles)
     return pageData;
 }
-const getPublicUrl = (fileurl,supabase) => {
+export const _getPublicUrl = (fileurl,supabase) => {
         const { data,error } = supabase.storage.from('fundi4all').getPublicUrl(fileurl);
         //console.log(data)
         if(error){

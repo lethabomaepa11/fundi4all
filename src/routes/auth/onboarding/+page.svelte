@@ -10,7 +10,7 @@
     </title>
 </head>
 
-    <form method="post" action="?/updateUser" class="card shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
+    <form method="post" action="?/updateUser" class="card bg-slate-100 shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
         <h2 class="text-2xl font-bold">{data.name} {data.surname}</h2>
         <p class="text-sm">Tell us more about yourself</p>
         <p class="text-sm text-info">You can update your information anytime in your profile page</p>

@@ -31,6 +31,7 @@
 	"dependencies": {
 		"@supabase/ssr": "^0.5.1",
 		"@supabase/supabase-js": "^2.45.3",
+		"@tabler/icons-svelte": "^3.20.0",
 		"bcrypt": "^5.1.1",
 		"theme-change": "^2.5.0",
 		"vite-plugin-pwa": "^0.20.3"

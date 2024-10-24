@@ -5,7 +5,7 @@
     </title>
 </head>
 
-    <form method="post" action="/auth?/login" class="card shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
+    <form method="post" action="/auth?/login" class="bg-slate-100 card shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
         <h2 class="text-2xl font-bold">Login</h2>
         <label for="email" class="">
             Email

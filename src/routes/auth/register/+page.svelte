@@ -6,7 +6,7 @@
         Register for an account
     </title>
 </head>
-    <form method="post" action="/auth?/registerUser" class="card shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
+    <form method="post" action="/auth?/registerUser" class="card bg-slate-100 shadow flex flex-col gap-2 items-start p-10 lg:border w-full lg:w-2/5">
         <h2 class="text-2xl font-bold">Register</h2>
         <div class="lg:grid lg:grid-cols-2 gap-2 items-start w-full">
             <div>

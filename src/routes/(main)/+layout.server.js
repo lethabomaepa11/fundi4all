@@ -5,6 +5,7 @@ export const load = async({locals: {supabase}}) =>{
                         .select()
                         .eq("user_id",user.id)
                         .single()
+                        
     if(!data){
         console.error("error")
     }

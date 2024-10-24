@@ -1,7 +1,8 @@
 <script>
 	import { fade, fly, scale, slide } from 'svelte/transition';
 	import CreatePost from '../../../components/CreatePost.svelte';
-
+	import Posts from '../../../components/Posts.svelte';
+    export const prerender = false;
     export let data;
     //console.log(data)
     let topics;
@@ -18,7 +19,7 @@
     {data.name} {data.surname} | fundi4All
 </title>
 <main transition:fade class="flex flex-col lg:flex-row justify-evenly items-start">
-    <section class="profileCard card lg:shadow-lg p-5 w-full lg:w-2/4 bg-white">
+    <section class="profileCard card lg:shadow-lg p-5 w-full lg:w-2/4 bg-slate-100">
         <div class="bg-neutral-300 min-w-full h-[150px] rounded">
             <img class={`btn btn-circle w-[150px] h-[150px] mt-6 ml-5 absolute`}` src="/fundi4All full logo.png" alt={`${data.name} ${data.surname}`}/>
         </div>
@@ -78,19 +79,9 @@
         </div>
          
     </section>
-    <section class="card lg:shadow p-5 lg:w-2/5 bg-white">
+    <section class="card lg:shadow p-5 lg:w-2/5 bg-slate-100 overflow-hidden overflow-y-auto">
         <h1 class="text-lg font-bold text-pretty">Posts</h1>
-        {#each data.posts as post}
-            <div class="card card-bordered shadow-md my-3 p-5">
-                <p class="text-sm text-accent-content">{Date(post.created_at)}</p>
-                <div class="flex p-2">
-                    <pre><span class="pre">{post.text == null?"":post.text}</span></pre>
-                </div>
-                <div class="card-actions">
-                    <i class="fa fa-thumbs-up"></i>
-                </div>
-            </div>
-        {/each}
+        <Posts data={data}/>
         <h1 class="text-lg font-bold text-pretty">Explore classrooms</h1>
         <h1 class="text-lg font-bold text-pretty">Tutoring services</h1>
     </section>

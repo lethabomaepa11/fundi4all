@@ -3,7 +3,7 @@
     Home | fundi4All
 </title>
 <main>
-    <header class="navbar bg-base-500 shadow">
+    <header class="navbar shadow">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@
           <a href="/auth/login" class="md:btn md:btn-outline px-5">Login here</a>
         </div>
     </header>
-    <section class="my-5 p-2">
-        <h1 style="font-family: 'Playpen Sans';" class="ml-10 text-4xl font-extrabold text-pretty text-primary-content">Welcome to the<br/> <span style="font-family: 'Playpen Sans';" class="text-primary">fundi4All</span> environment</h1>
+    <section class="my-5 p-2 flex flex-col justify-center items-center">
+      <h1 class="font-bold text-5xl">Fundi for me, for you, for <span class="text-primary">all</span>!!!</h1>
     </section>
 </main>
